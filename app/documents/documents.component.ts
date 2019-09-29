@@ -8,7 +8,7 @@ import { DocumentService } from "./document.service";
   selector: "documents",
   templateUrl: "documents.component.html",
   styleUrls: ["documents.component.css"],
-  providers: [ DocumentService ]
+  providers: [DocumentService]
 })
 export class DocumentsComponent implements OnInit {
   pageTitle: string = "Document Dashboard";
@@ -16,9 +16,7 @@ export class DocumentsComponent implements OnInit {
   errorMessage: string;
   mode: "Observable";
 
-  constructor(
-    private documentService: DocumentService;
-  ) { }
+  constructor(private documentService: DocumentService) {}
 
   ngOnInit() {
     let timer = Observable.timer(0, 5000);
@@ -26,10 +24,11 @@ export class DocumentsComponent implements OnInit {
   }
 
   getDocuments() {
-    this.documentService.getDocuments()
+    this.documentService
+      .getDocuments()
       .subscribe(
-        documents => this.documents = documents,
-        error => this.errorMessage = <any>error
+        documents => (this.documents = documents),
+        error => (this.errorMessage = <any>error)
       );
   }
 }

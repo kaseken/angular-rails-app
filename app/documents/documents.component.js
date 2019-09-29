@@ -24,8 +24,9 @@ var DocumentsComponent = /** @class */ (function () {
     };
     DocumentsComponent.prototype.getDocuments = function () {
         var _this = this;
-        this.documentService.getDocuments()
-            .subscribe(function (documents) { return _this.documents = documents; }, function (error) { return _this.errorMessage = error; });
+        this.documentService
+            .getDocuments()
+            .subscribe(function (documents) { return (_this.documents = documents); }, function (error) { return (_this.errorMessage = error); });
     };
     DocumentsComponent = __decorate([
         core_1.Component({
