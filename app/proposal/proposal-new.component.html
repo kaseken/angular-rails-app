@@ -3,7 +3,7 @@
     <div class="col-md-6">
       <h1>Create a Proposal</h1>
       <div>
-        <form #proposalForm="ngForm">
+        <form (ngSubmit)="createProposal(proposal)" #proposalForm="ngForm">
           <div class="form-group">
             <label for="customer">Customer Name</label>
             <input
@@ -137,6 +137,11 @@
           >
             Generate Proposal
           </button>
+
+          <div [hidden]="!submitted" class="alert alert-success" role="alert">
+            Your proposal has been generated
+            <a routerLink="/proposals">View all proposals</a>
+          </div>
         </form>
       </div>
     </div>
